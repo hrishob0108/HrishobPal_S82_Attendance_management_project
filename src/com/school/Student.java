@@ -1,16 +1,17 @@
 package com.school;
 
 public class Student {
+    private static int nextStudentIdCounter = 1; 
+    private int studentId;
     private String name;
-    private int rollNumber;
 
-    public Student(String name, int rollNumber) {
+    public Student(String name) {
+        this.studentId = nextStudentIdCounter++;
         this.name = name;
-        this.rollNumber = rollNumber;
     }
 
     public void displayInfo() {
         System.out.println("Student Name: " + name);
-        System.out.println("Roll Number: " + rollNumber);
+        System.out.println("Student ID: " + studentId);
     }
 }
