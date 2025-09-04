@@ -2,34 +2,14 @@ package com.school;
 
 public class AttendanceRecord {
     private int studentId;
-    private int courseId;
-    private String status;
+    private String date;
 
-    public AttendanceRecord(int studentId, int courseId, String status) {
+    public AttendanceRecord(int studentId, String date) {
         this.studentId = studentId;
-        this.courseId = courseId;
-
-        if (status.equalsIgnoreCase("Present") || status.equalsIgnoreCase("Absent")) {
-            this.status = status;
-        } else {
-            this.status = "Invalid";
-            System.out.println("Warning: Invalid attendance status entered for studentId " + studentId);
-        }
-    }
-
-    public int getStudentId() {
-        return studentId;
-    }
-
-    public int getCourseId() {
-        return courseId;
-    }
-
-    public String getStatus() {
-        return status;
+        this.date = date;
     }
 
     public void displayRecord() {
-        System.out.println("Student ID: " + studentId + ", Course ID: " + courseId + ", Status: " + status);
+        System.out.println("Attendance Record -> Student ID: " + studentId + ", Date: " + date);
     }
 }
