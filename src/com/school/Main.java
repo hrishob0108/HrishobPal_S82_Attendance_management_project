@@ -1,19 +1,24 @@
 package com.school;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        // Create objects
-        Student student = new Student("Alice", "10th Grade");
-        Teacher teacher = new Teacher("Mr. Smith", "Mathematics");
-        Staff staff = new Staff("John", "Librarian");
+        ArrayList<Student> students = new ArrayList<>();
+        students.add(new Student(1, "Alice", 10));
+        students.add(new Student(2, "Bob", 11));
 
-        // Display details
-        student.displayDetails();
-        teacher.displayDetails();
-        staff.displayDetails();
+        ArrayList<Course> courses = new ArrayList<>();
+        courses.add(new Course(101, "Mathematics"));
+        courses.add(new Course(102, "Science"));
 
-        // Example AttendanceRecord usage
-        AttendanceRecord record = new AttendanceRecord(student.getId(), "2025-09-04");
-        record.displayRecord();
+        ArrayList<AttendanceRecord> records = new ArrayList<>();
+        records.add(new AttendanceRecord(1, 101, "Present"));
+        records.add(new AttendanceRecord(2, 102, "Absent"));
+
+        FileStorageService storageService = new FileStorageService();
+        storageService.saveData(students, "students.txt");
+        storageService.saveData(courses, "courses.txt");
+        storageService.saveData(records, "attendance_log.txt");
     }
 }
